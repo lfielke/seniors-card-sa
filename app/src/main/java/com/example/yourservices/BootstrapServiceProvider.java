@@ -1,4 +1,3 @@
-
 package com.example.yourservices;
 
 import android.accounts.AccountsException;

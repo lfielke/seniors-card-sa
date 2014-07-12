@@ -90,8 +90,6 @@ public class DiscountOffer implements Serializable {
     private String mLongitude;
 
 
-
-
     public DiscountOffer() {
 
     }

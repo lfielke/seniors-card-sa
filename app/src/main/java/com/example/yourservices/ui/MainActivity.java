@@ -1,5 +1,3 @@
-
-
 package com.example.yourservices.ui;
 
 import android.accounts.OperationCanceledException;
@@ -58,7 +56,6 @@ public class MainActivity extends BootstrapFragmentActivity {
     private Observable<Location> lastKnownLocationObservable;
     private Observable<Location> locationUpdatesObservable;
     private Subscription lastKnownLocationSubscription;
-
 
 
     @Override

@@ -1,4 +1,3 @@
-
 package com.example.yourservices.core;
 
 import com.example.yourservices.model.DiscountOffer;

@@ -1,5 +1,3 @@
-
-
 package com.example.yourservices;
 
 import android.app.Application;

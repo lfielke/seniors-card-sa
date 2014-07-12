@@ -1,4 +1,3 @@
-
 package com.example.yourservices.authenticator;
 
 import android.accounts.AbstractAccountAuthenticator;

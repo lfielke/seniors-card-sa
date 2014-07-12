@@ -1,5 +1,3 @@
-
-
 package com.example.yourservices.ui;
 
 import android.graphics.Canvas;
