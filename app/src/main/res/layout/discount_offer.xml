@@ -13,18 +13,18 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="130dp">
 
             <ImageView
+                android:id="@+id/header_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:id="@+id/header_bg" />
+                android:scaleType="centerCrop" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/seniors_card_blue_overlay"
+                android:background="@color/actionbar_background_start"
                 android:orientation="vertical"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
@@ -32,22 +32,53 @@
                 android:paddingTop="5dp">
 
                 <!-- Business name -->
-                <TextView
+                <me.grantland.widget.AutofitTextView
                     android:id="@+id/business_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
                     android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
                     android:gravity="left"
+                    android:maxLines="2"
+                    android:shadowColor="#AA000000"
+                    android:shadowRadius="4"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/seniors_card_text_white"
-                    tools:text="City Physiotherapy and Sports Injury Clinic"
                     android:textSize="26sp"
-                    android:shadowColor="#AA000000"
-                    android:shadowRadius="4" />
+                    tools:text="City Physiotherapy and Sports Injury Clinic" />
 
 
             </FrameLayout>
+
+            <!-- Icons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp">
+
+                <ImageView
+                    android:layout_width="@dimen/discount_icon_size"
+                    android:layout_height="@dimen/discount_icon_size"
+                    android:id="@+id/icon_parking"
+                    android:src="@drawable/ic_parking" />
+
+                <ImageView
+                    android:layout_width="@dimen/discount_icon_size"
+                    android:layout_height="@dimen/discount_icon_size"
+                    android:id="@+id/icon_disabled"
+                    android:src="@drawable/ic_disabled" />
+
+                <ImageView
+                    android:layout_width="@dimen/discount_icon_size"
+                    android:layout_height="@dimen/discount_icon_size"
+                    android:id="@+id/icon_new_zealand"
+                    android:src="@drawable/ic_new_zealand" />
+
+            </LinearLayout>
+
         </FrameLayout>
 
 
@@ -61,6 +92,7 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp">
 
+
             <!-- Address -->
             <TextView
                 android:id="@+id/address"
@@ -68,8 +100,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Lvl 6 118 King William Street\nADELAIDE"
-                android:textColor="@color/table_text_selector"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/table_text_selector" />
             <!--android:textColor="@color/seniors_card_text_grey" />-->
 
             <!-- Offer details -->
@@ -78,9 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/table_text_selector"
-                android:gravity="center_horizontal"
                 tools:text="20% discount on the gap for all visits" />
 
             <!-- View on map -->
@@ -93,22 +125,22 @@
                 android:padding="2dp">
 
                 <ImageView
+                    android:id="@+id/map_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/map_img"
                     android:src="@drawable/ic_map" />
 
                 <TextView
+                    android:id="@+id/map_view_overlay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/map_view_overlay"
-                    android:text="View on map"
-                    android:gravity="center"
                     android:background="@drawable/overlay_states"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="26sp"
+                    android:gravity="center"
                     android:shadowColor="#AA000000"
-                    android:shadowRadius="4" />
+                    android:shadowRadius="4"
+                    android:text="View on map"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="26sp" />
 
             </com.example.yourservices.ui.view.SquareFrameLayout>
 
@@ -138,7 +170,7 @@
                     android:background="@drawable/button_background_states"
                     android:padding="@dimen/button_frame_padding">
 
-                <TextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

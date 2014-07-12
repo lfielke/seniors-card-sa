@@ -112,7 +112,7 @@ public class BootstrapModule {
     RestAdapterRequestInterceptor provideRestAdapterRequestInterceptor(UserAgentProvider userAgentProvider,
                                                                        Context context) {
         String parseAppId = context.getString(R.string.api_key_parse_app_id);
-        String parseClientKey = context.getString(R.string.api_key_parse_client_key);
+        String parseClientKey = context.getString(R.string.api_key_parse_rest_key);
 
         return new RestAdapterRequestInterceptor(userAgentProvider, parseAppId, parseClientKey);
     }

@@ -1,6 +1,8 @@
 
 package com.example.yourservices.core;
 
+import com.example.yourservices.model.DiscountOffer;
+
 import java.util.List;
 
 import retrofit.RestAdapter;
@@ -36,6 +38,10 @@ public class BootstrapService {
         return getRestAdapter().create(NewsService.class);
     }
 
+    private DiscountService getDiscountService() {
+        return getRestAdapter().create(DiscountService.class);
+    }
+
     private CheckInService getCheckInService() {
         return getRestAdapter().create(CheckInService.class);
     }
@@ -49,6 +55,10 @@ public class BootstrapService {
      */
     public List<News> getNews() {
         return getNewsService().getNews().getResults();
+    }
+
+    public List<DiscountOffer> getDiscountOffers() {
+        return getDiscountService().getDiscountOffers().getResults();
     }
 
     /**

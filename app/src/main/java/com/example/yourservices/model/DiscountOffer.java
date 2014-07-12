@@ -1,5 +1,7 @@
 package com.example.yourservices.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,20 +18,40 @@ import lombok.experimental.Accessors;
 public class DiscountOffer implements Serializable {
 
     @NotNull
+    @SerializedName("businessName")
     private String mBusinessName;
+
     @NotNull
+    @SerializedName("detailsOfOffer")
     private String mDiscountOffer;
+
     @Nullable
+    @SerializedName("Phone1")
     private String mPhoneNumber;
+
     @Nullable
+    @SerializedName("website")
     private String mWebsite;
 
-    public DiscountOffer(@NotNull String mBusinessName, @NotNull String mDiscountOffer,
-                         @Nullable String mPhoneNumber, @Nullable String mWebsite) {
-        this.mBusinessName = mBusinessName;
-        this.mDiscountOffer = mDiscountOffer;
-        this.mPhoneNumber = mPhoneNumber;
-        this.mWebsite = mWebsite;
+    @Nullable
+    @SerializedName("exclusionsToOffer")
+    private String mExclusionsToOffer;
+
+    @Nullable
+    @SerializedName("primaryCategory")
+    private String mPrimaryCategory;
+
+    @Nullable
+    @SerializedName("subCategory")
+    private String mSubCategory;
+
+    @Nullable
+    @SerializedName("symbols")
+    private String mSymbols; //P=Parking, DA=disabled access, NZ=available to N.Z.,
+
+
+    public DiscountOffer() {
+
     }
 
     public boolean hasPhoneNumber() {
@@ -51,5 +73,9 @@ public class DiscountOffer implements Serializable {
         } else {
             return mWebsite;
         }
+    }
+
+    public boolean hasParking() {
+        return mSymbols != null && mSymbols.contains("P");
     }
 }
