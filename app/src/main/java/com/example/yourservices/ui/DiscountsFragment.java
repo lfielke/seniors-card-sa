@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
-import butterknife.Views;
+import butterknife.ButterKnife;
 
 /**
  * Fragment which houses the View pager.
@@ -33,7 +33,7 @@ public class DiscountsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Views.inject(this, getView());
+        ButterKnife.inject(this, getView());
         setUpMapIfNeeded();
     }
 

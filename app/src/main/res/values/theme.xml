@@ -9,6 +9,11 @@
         <!--<item name="android:windowActionBarOverlay">true</item>-->
     </style>
 
+    <style name="Theme.Bootstrap.Dark.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
     <style name="Widget.Styled.ActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
         <item name="background">@drawable/actionbar_background</item>
         <item name="android:background">@drawable/actionbar_background</item>

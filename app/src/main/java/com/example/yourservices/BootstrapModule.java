@@ -18,6 +18,7 @@ import com.example.yourservices.ui.CheckInsListFragment;
 import com.example.yourservices.ui.DiscountListFragment;
 import com.example.yourservices.ui.DiscountOfferActivity;
 import com.example.yourservices.ui.MainActivity;
+import com.example.yourservices.ui.MainMenuActivity;
 import com.example.yourservices.ui.NavigationDrawerFragment;
 import com.example.yourservices.ui.NewsActivity;
 import com.example.yourservices.ui.NewsListFragment;
@@ -44,6 +45,7 @@ import retrofit.converter.GsonConverter;
         injects = {
                 BootstrapApplication.class,
                 BootstrapAuthenticatorActivity.class,
+                MainMenuActivity.class,
                 MainActivity.class,
                 BootstrapTimerActivity.class,
                 CheckInsListFragment.class,

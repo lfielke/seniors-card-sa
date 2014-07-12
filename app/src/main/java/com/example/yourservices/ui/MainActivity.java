@@ -24,7 +24,7 @@ import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
-import butterknife.Views;
+import butterknife.ButterKnife;
 import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
 import rx.Observable;
 import rx.Subscription;
@@ -72,7 +72,7 @@ public class MainActivity extends BootstrapFragmentActivity {
         }
 
         // View injection with Butterknife
-        Views.inject(this);
+        ButterKnife.inject(this);
 
         // Set up navigation drawer
         title = drawerTitle = getTitle();
@@ -165,7 +165,8 @@ public class MainActivity extends BootstrapFragmentActivity {
         @Override
         public void call(String s) {
 //            target.setText(s);
-            MainActivity.this.setTitle(s);
+            Ln.d("Location update: %s", s);
+//            MainActivity.this.setTitle(s);
         }
     }
 

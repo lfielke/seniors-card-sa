@@ -33,9 +33,27 @@
         <item name="android:shadowRadius">4</item>
         <item name="android:textColor">@color/seniors_card_text_white</item>
         <item name="android:textSize">26sp</item>
-
-
     </style>
 
+    <!-- Outer container for button -->
+    <style name="ButtonContainer">
+        <item name="android:layout_width">240dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/button_material_green_states</item>
+        <item name="android:padding">@dimen/button_frame_padding</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <!-- TextView for button -->
+    <style name="ButtonTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 </resources>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <!-- Main Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Card image -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_photo2"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/seniors_card_blue_overlay" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="32dp"
+                android:paddingLeft="1px"
+                android:paddingTop="1px"
+                android:paddingBottom="2dp"
+                android:paddingRight="2dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/seniors_card"
+                android:background="#80000000" />
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D0000000" />
+
+
+        <!-- Details main area (area) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/detail_view_side_padding"
+            android:paddingRight="@dimen/detail_view_side_padding"
+            android:paddingTop="8dp">
+
+            <include layout="@layout/spacer" />
+
+            <!-- Buttons -->
+            <FrameLayout
+                android:id="@+id/browse_button"
+                style="@style/ButtonContainer">
+
+                <TextView
+                    style="@style/ButtonTextView"
+                    android:text="Browse discounts" />
+
+            </FrameLayout>
+
+            <include layout="@layout/spacer" />
+
+
+            <!-- Buttons -->
+            <FrameLayout
+                android:id="@+id/my_list_button"
+                style="@style/ButtonContainer">
+
+                <TextView
+                    style="@style/ButtonTextView"
+                    android:text="My list" />
+
+            </FrameLayout>
+
+            <include layout="@layout/spacer" />
+
+            <!-- Buttons -->
+            <FrameLayout
+                android:id="@+id/suggest_button"
+                style="@style/ButtonContainer">
+
+                <TextView
+                    style="@style/ButtonTextView"
+                    android:text="Suggest a business" />
+
+            </FrameLayout>
+
+            <include layout="@layout/spacer" />
+
+            <!-- Buttons -->
+            <FrameLayout
+                android:id="@+id/about_seniors_card_button"
+                style="@style/ButtonContainer">
+
+                <TextView
+                    style="@style/ButtonTextView"
+                    android:text="About seniors card" />
+
+            </FrameLayout>
+
+            <include layout="@layout/spacer" />
+
+            <!-- Buttons -->
+            <!--<FrameLayout-->
+            <!--android:id="@+id/about_app_button"-->
+            <!--style="@style/ButtonContainer">-->
+
+            <!--<TextView-->
+            <!--style="@style/ButtonTextView"-->
+            <!--android:text="About this app" />-->
+
+            <!--</FrameLayout>-->
+
+            <!--<include layout="@layout/spacer" />-->
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80000000" />
+
+        <!-- Bottom band -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/seniors_card_brown"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/ButtonTextView"
+                android:id="@+id/about_app_button"
+                android:text="About this app" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

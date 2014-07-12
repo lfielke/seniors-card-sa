@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <resources>
 
     <string name="app_name">Seniors Card</string>
@@ -46,6 +45,8 @@
 
     <!-- Discount details -->
     <string name="discount_details_title">Discount details</string>
-
+    <string name="title_activity_main_menu">Seniors Card</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
