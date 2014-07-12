@@ -3,6 +3,9 @@
 
     <dimen name="button_frame_padding">8dp</dimen>
     <dimen name="discount_icon_size">32dp</dimen>
+    <dimen name="top_header_height">130dp</dimen>
+
+    <dimen name="detail_view_side_padding">10dp</dimen>
 
 
     <!-- Colors -->
@@ -16,6 +19,23 @@
 
     <color name="map_overlay_bg">#CC888888</color>
     <color name="map_overlay_bg_pressed">#CC666666</color>
+
+
+    <color name="text_shadow_color">#AA000000</color>
+
+
+    <!-- Styles -->
+    <style name="HeaderText">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="android:textColor">@color/seniors_card_text_white</item>
+        <item name="android:textSize">26sp</item>
+
+
+    </style>
 
 
 </resources>

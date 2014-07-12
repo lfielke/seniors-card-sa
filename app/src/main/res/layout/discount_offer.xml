@@ -13,7 +13,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="@dimen/top_header_height">
 
             <ImageView
                 android:id="@+id/header_bg"
@@ -27,8 +27,8 @@
                 android:background="@color/seniors_card_blue_overlay"
                 android:orientation="vertical"
                 android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="@dimen/detail_view_side_padding"
+                android:paddingRight="@dimen/detail_view_side_padding"
                 android:paddingTop="5dp">
 
                 <!-- Business name -->
@@ -36,15 +36,7 @@
                     android:id="@+id/business_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="left"
-                    android:maxLines="2"
-                    android:shadowColor="#AA000000"
-                    android:shadowRadius="4"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/seniors_card_text_white"
-                    android:textSize="26sp"
+                    style="@style/HeaderText"
                     tools:text="City Physiotherapy and Sports Injury Clinic" />
 
 
@@ -82,18 +74,18 @@
         </FrameLayout>
 
 
-        <!-- Details bottom half -->
+        <!-- Details bottom half (white area) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="@dimen/detail_view_side_padding"
+            android:paddingRight="@dimen/detail_view_side_padding"
             android:paddingTop="12dp">
 
 
-            <!-- Map and Address -->
+            <!-- Map button and Address -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,7 +108,7 @@
                     android:textColor="@color/table_text_selector"
                     android:layout_gravity="center_vertical"
                     tools:text="Level 6, 68 Grenfell St, Adelaide, SA 5000" />
-                <!--android:textColor="@color/seniors_card_text_grey" />-->
+
             </LinearLayout>
 
 
@@ -184,7 +176,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
                 <!-- Website button -->
                 <FrameLayout
