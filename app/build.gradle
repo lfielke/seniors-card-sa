@@ -30,7 +30,11 @@ dependencies {
     compile 'com.squareup.picasso:picasso:1.1.1'
     compile 'com.squareup.retrofit:retrofit:1.5.1'
 
+    compile 'com.intellij:annotations:+@jar'
+
     compile 'com.google.android.gms:play-services:5.0.77'
+
+    provided "org.projectlombok:lombok:1.12.6"
 
     androidTestCompile 'junit:junit:4.11'
     androidTestCompile 'org.hamcrest:hamcrest-library:1.3'

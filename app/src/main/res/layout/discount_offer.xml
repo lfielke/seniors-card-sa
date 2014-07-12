@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/seniors_card_blue"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <!-- Business name -->
+            <TextView
+                android:id="@+id/business_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/seniors_card_text_white"
+                tools:text="City Physiotherapy and Sports Injury Clinic" />
+
+            <!-- Address -->
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Lvl 6 118 King William Street\nADELAIDE"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/seniors_card_text_grey" />
+
+
+        </LinearLayout>
+
+        <!-- Details bottom half -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <!-- Offer details -->
+            <TextView
+                android:id="@+id/offer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/table_text_selector"
+                tools:text="20% discount on the gap for all visits" />
+
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Website button -->
+            <FrameLayout
+                android:id="@+id/website_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_background_states"
+                android:padding="@dimen/button_frame_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:duplicateParentState="true"
+                    android:gravity="center"
+                    android:text="Website"
+                    android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+            </FrameLayout>
+
+            <!-- Call button -->
+            <FrameLayout
+                android:id="@+id/call_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background_states"
+                android:padding="@dimen/button_frame_padding">
+
+                <TextView
+                    android:id="@+id/call_button_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="16dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center"
+                    android:text="Call"
+                    android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

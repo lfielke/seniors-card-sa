@@ -7,8 +7,8 @@
     <string name="page_referrers">Referrers</string>
     <string name="refresh_action">Refresh</string>
     <string name="logout_action">Logout</string>
-    <string name="page_news">News</string>
-    <string name="page_users">Users</string>
+    <string name="page_list">List</string>
+    <string name="page_map">Map</string>
     <string name="page_checkins">Check In\'s</string>
     <string name="title_column">Title</string>
     <string name="location_column">Location</string>

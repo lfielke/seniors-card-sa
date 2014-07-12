@@ -15,6 +15,8 @@ import com.example.yourservices.core.TimerService;
 import com.example.yourservices.core.UserAgentProvider;
 import com.example.yourservices.ui.BootstrapTimerActivity;
 import com.example.yourservices.ui.CheckInsListFragment;
+import com.example.yourservices.ui.DiscountListFragment;
+import com.example.yourservices.ui.DiscountOfferActivity;
 import com.example.yourservices.ui.MainActivity;
 import com.example.yourservices.ui.NavigationDrawerFragment;
 import com.example.yourservices.ui.NewsActivity;
@@ -50,6 +52,8 @@ import retrofit.converter.GsonConverter;
                 NewsListFragment.class,
                 UserActivity.class,
                 UserListFragment.class,
+                DiscountListFragment.class,
+                DiscountOfferActivity.class,
                 TimerService.class
         }
 )
@@ -105,8 +109,12 @@ public class BootstrapModule {
     }
 
     @Provides
-    RestAdapterRequestInterceptor provideRestAdapterRequestInterceptor(UserAgentProvider userAgentProvider) {
-        return new RestAdapterRequestInterceptor(userAgentProvider);
+    RestAdapterRequestInterceptor provideRestAdapterRequestInterceptor(UserAgentProvider userAgentProvider,
+                                                                       Context context) {
+        String parseAppId = context.getString(R.string.api_key_parse_app_id);
+        String parseClientKey = context.getString(R.string.api_key_parse_client_key);
+
+        return new RestAdapterRequestInterceptor(userAgentProvider, parseAppId, parseClientKey);
     }
 
     @Provides

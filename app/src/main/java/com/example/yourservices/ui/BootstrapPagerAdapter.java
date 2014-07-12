@@ -31,7 +31,7 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
         final Fragment result;
         switch (position) {
             case 0:
-                result = new NewsListFragment();
+                result = new DiscountListFragment();
                 break;
             case 1:
 //                result = new DiscountsFragment();
@@ -62,9 +62,9 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(final int position) {
         switch (position) {
             case 0:
-                return resources.getString(R.string.page_news);
+                return resources.getString(R.string.page_list);
             case 1:
-                return resources.getString(R.string.page_users);
+                return resources.getString(R.string.page_map);
             case 2:
                 return resources.getString(R.string.page_checkins);
             default:

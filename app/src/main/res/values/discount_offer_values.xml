@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="button_frame_padding">8dp</dimen>
+
+    <color name="seniors_card_blue">#104a7c</color>
+    <color name="seniors_card_brown">#a8996e</color>
+
+    <color name="seniors_card_text_white">#FFffffff</color>
+    <color name="seniors_card_text_grey">#FFDDDDDD</color>
+
+
+</resources>
