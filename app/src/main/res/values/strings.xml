@@ -44,5 +44,8 @@
     <string name="navigation_drawer_close">Drawer Close</string>
     <string name="title_home">Home</string>
 
+    <!-- Discount details -->
+    <string name="discount_details_title">Discount details</string>
+
 
 </resources>

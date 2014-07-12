@@ -47,7 +47,7 @@ public class DiscountOfferActivity extends BootstrapActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        setTitle(mDiscountOffer.getBusinessName());
+        setTitle(R.string.discount_details_title);
 
         // Bind views
         mBusinessName.setText(mDiscountOffer.getBusinessName());
@@ -55,7 +55,7 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
         // Phone number
         if (mDiscountOffer.hasPhoneNumber()) {
-            mCallButtonTxt.setText(mDiscountOffer.getPhoneNumber());
+//            mCallButtonTxt.setText(mDiscountOffer.getPhoneNumber());
             mCallButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

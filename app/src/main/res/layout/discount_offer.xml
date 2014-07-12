@@ -72,45 +72,58 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <!-- Website button -->
-            <FrameLayout
-                android:id="@+id/website_button"
+
+            <!-- Call / website buttons -->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/button_background_states"
-                android:padding="@dimen/button_frame_padding">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+
+                <!-- Website button -->
+                <FrameLayout
+                    android:id="@+id/website_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background_states"
+                    android:padding="@dimen/button_frame_padding"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:duplicateParentState="true"
+                        android:gravity="center"
+                        android:text="Website"
+                        android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+                </FrameLayout>
+
+                <!-- Call button -->
+                <FrameLayout
+                    android:id="@+id/call_button"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:duplicateParentState="true"
-                    android:gravity="center"
-                    android:text="Website"
-                    android:textAppearance="?android:attr/textAppearanceLargeInverse" />
-            </FrameLayout>
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background_states"
+                    android:padding="@dimen/button_frame_padding">
 
-            <!-- Call button -->
-            <FrameLayout
-                android:id="@+id/call_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_background_states"
-                android:padding="@dimen/button_frame_padding">
+                    <TextView
+                        android:id="@+id/call_button_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawablePadding="16dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center"
+                        android:text="Call"
+                        android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+                </FrameLayout>
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/call_button_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:drawableLeft="@drawable/ic_phone"
-                    android:drawablePadding="16dp"
-                    android:duplicateParentState="true"
-                    android:gravity="center"
-                    android:text="Call"
-                    android:textAppearance="?android:attr/textAppearanceLargeInverse" />
-            </FrameLayout>
 
         </LinearLayout>
     </LinearLayout>
