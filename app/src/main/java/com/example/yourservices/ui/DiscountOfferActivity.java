@@ -11,6 +11,7 @@ import com.example.yourservices.R;
 import com.example.yourservices.core.Constants;
 import com.example.yourservices.model.DiscountOffer;
 import com.example.yourservices.util.Ln;
+import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
@@ -19,13 +20,21 @@ import lombok.experimental.Accessors;
 @Accessors(prefix = "m")
 public class DiscountOfferActivity extends BootstrapActivity {
 
+    private static final LatLng DEFAULT_LOCATION = new LatLng(-34.9067875, 138.6060122);
+
     private DiscountOffer mDiscountOffer;
 
     @InjectView(R.id.business_name)
     protected TextView mBusinessName;
 
+    @InjectView(R.id.address)
+    protected TextView mAddressTxt;
+
     @InjectView(R.id.offer)
-    protected TextView mOffer;
+    protected TextView mOfferTxt;
+
+    @InjectView(R.id.extra_info_txt)
+    protected TextView mExtraInfoTxt;
 
     @InjectView(R.id.call_button)
     protected View mCallButton;
@@ -44,6 +53,9 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
     @InjectView(R.id.header_bg)
     protected ImageView mHeaderBg;
+
+    @InjectView(R.id.map_btn)
+    protected View mMapBtn;
 
 //    @InjectView(R.id.map_view)
 //    protected MapView mMapView;
@@ -67,7 +79,10 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
         // Bind views
         mBusinessName.setText(mDiscountOffer.getBusinessName());
-        mOffer.setText(mDiscountOffer.getDiscountOffer());
+        mAddressTxt.setText(mDiscountOffer.getAddress());
+        mOfferTxt.setText(mDiscountOffer.getDiscountOffer());
+        mExtraInfoTxt.setText(mDiscountOffer.getExtraText());
+        mExtraInfoTxt.setText(mDiscountOffer.toString()); // TODO - remove
 
         // Phone number
         if (mDiscountOffer.hasPhoneNumber()) {
@@ -101,13 +116,25 @@ public class DiscountOfferActivity extends BootstrapActivity {
                 onMapClick();
             }
         });
+        mMapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMapClick();
+            }
+        });
+        LatLng mapLocation = mDiscountOffer.getLatLng();
+        if (mapLocation == null) {
+            mapLocation = DEFAULT_LOCATION;
+        }
         Picasso.with(this)
-                .load(getStaticMapUri(-34.9067875, 138.6060122)) // TODO - real coords
+                .load(getStaticMapUri(mapLocation))
 //                .into(mMapImg);
                 .into(mHeaderBg);
     }
 
-    private static Uri getStaticMapUri(double latitude, double longitude) {
+    private static Uri getStaticMapUri(LatLng latLng) {
+        double latitude = latLng.latitude;
+        double longitude = latLng.longitude;
         return Uri.parse("http://maps.google.com/maps/api/staticmap?center=" +
                 latitude + "," + longitude + "&zoom=13&size=600x300&sensor=false");
     }

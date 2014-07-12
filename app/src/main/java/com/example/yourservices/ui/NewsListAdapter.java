@@ -15,7 +15,7 @@ public class NewsListAdapter extends AlternatingColorListAdapter<News> {
      */
     public NewsListAdapter(final LayoutInflater inflater, final List<News> items,
                            final boolean selectable) {
-        super(R.layout.news_list_item, inflater, items, selectable);
+        super(R.layout.discount_list_item, inflater, items, selectable);
     }
 
     /**
@@ -23,13 +23,13 @@ public class NewsListAdapter extends AlternatingColorListAdapter<News> {
      * @param items
      */
     public NewsListAdapter(final LayoutInflater inflater, final List<News> items) {
-        super(R.layout.news_list_item, inflater, items);
+        super(R.layout.discount_list_item, inflater, items);
     }
 
     @Override
     protected int[] getChildViewIds() {
         return new int[]{R.id.tv_title, R.id.tv_summary,
-                R.id.tv_date};
+                R.id.tv_distance};
     }
 
     @Override

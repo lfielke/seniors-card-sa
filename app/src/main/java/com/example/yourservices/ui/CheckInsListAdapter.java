@@ -29,7 +29,7 @@ public class CheckInsListAdapter extends AlternatingColorListAdapter<CheckIn> {
 
     @Override
     protected int[] getChildViewIds() {
-        return new int[]{R.id.tv_name, R.id.tv_date};
+        return new int[]{R.id.tv_name, R.id.tv_distance};
     }
 
     @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
@@ -21,7 +22,8 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/table_text_selector" />
+            android:textColor="@color/table_text_selector"
+            tools:text="Business name" />
 
         <TextView
             android:id="@+id/tv_summary"
@@ -30,16 +32,19 @@
             android:singleLine="true"
             android:ellipsize="end"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/table_text_light_selector" />
+            android:textColor="@color/table_text_light_selector"
+            tools:text="Some fantastic offer!" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/tv_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:gravity="right"
         android:paddingLeft="15dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/table_text_selector" />
+        android:textColor="@color/table_text_selector"
+        tools:text="1.2km" />
 
 </LinearLayout>

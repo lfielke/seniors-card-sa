@@ -5,6 +5,7 @@ package com.example.yourservices.ui;
 import android.accounts.OperationCanceledException;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
@@ -20,11 +21,17 @@ import com.example.yourservices.events.NavItemSelectedEvent;
 import com.example.yourservices.util.Ln;
 import com.example.yourservices.util.SafeAsyncTask;
 import com.example.yourservices.util.UIUtils;
+import com.google.android.gms.location.LocationRequest;
 import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
 import butterknife.Views;
+import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
+import rx.Observable;
+import rx.Subscription;
+import rx.functions.Action1;
+import rx.functions.Func1;
 
 
 /**
@@ -45,6 +52,14 @@ public class MainActivity extends BootstrapFragmentActivity {
     private CharSequence drawerTitle;
     private CharSequence title;
     private NavigationDrawerFragment navigationDrawerFragment;
+
+    // ReactiveLocation
+    private ReactiveLocationProvider locationProvider;
+    private Observable<Location> lastKnownLocationObservable;
+    private Observable<Location> locationUpdatesObservable;
+    private Subscription lastKnownLocationSubscription;
+
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -106,6 +121,55 @@ public class MainActivity extends BootstrapFragmentActivity {
 
         checkAuth();
 
+        setupLocation();
+
+    }
+
+    private void setupLocation() {
+        locationProvider = new ReactiveLocationProvider(getApplicationContext());
+        lastKnownLocationObservable = locationProvider.getLastKnownLocation();
+
+        locationUpdatesObservable = locationProvider.getUpdatedLocation(
+                LocationRequest.create()
+                        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                        .setNumUpdates(5)
+                        .setInterval(100)
+        );
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        lastKnownLocationSubscription = lastKnownLocationObservable
+                .map(new LocationToStringFunc())
+                .subscribe(new DisplayTextOnViewAction());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        lastKnownLocationSubscription.unsubscribe();
+    }
+
+    private static class LocationToStringFunc implements Func1<Location, String> {
+        @Override
+        public String call(Location location) {
+            return location.getLatitude() + " " + location.getLongitude() + " (" + location.getAccuracy() + ")";
+        }
+    }
+
+    private class DisplayTextOnViewAction implements Action1<String> {
+//        private final TextView target;
+
+//        private DisplayTextOnViewAction(TextView target) {
+//            this.target = target;
+//        }
+
+        @Override
+        public void call(String s) {
+//            target.setText(s);
+            MainActivity.this.setTitle(s);
+        }
     }
 
     private boolean isTablet() {

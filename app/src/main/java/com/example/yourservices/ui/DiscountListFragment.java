@@ -114,7 +114,8 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
     public void onListItemClick(ListView l, View v, int position, long id) {
         DiscountOffer discountOffer = ((DiscountOffer) l.getItemAtPosition(position));
 
-        startActivity(new Intent(getActivity(), DiscountOfferActivity.class).putExtra(DISCOUNT_OFFER_ITEM, discountOffer));
+        startActivity(new Intent(getActivity(), DiscountOfferActivity.class)
+                .putExtra(DISCOUNT_OFFER_ITEM, discountOffer));
     }
 
     @Override
@@ -130,7 +131,7 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
          */
         public DiscountListAdapter(final LayoutInflater inflater, final List<DiscountOffer> items,
                                    final boolean selectable) {
-            super(R.layout.news_list_item, inflater, items, selectable);
+            super(R.layout.discount_list_item, inflater, items, selectable);
         }
 
         /**
@@ -138,13 +139,13 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
          * @param items
          */
         public DiscountListAdapter(final LayoutInflater inflater, final List<DiscountOffer> items) {
-            super(R.layout.news_list_item, inflater, items);
+            super(R.layout.discount_list_item, inflater, items);
         }
 
         @Override
         protected int[] getChildViewIds() {
             return new int[]{R.id.tv_title, R.id.tv_summary,
-                    R.id.tv_date};
+                    R.id.tv_distance};
         }
 
         @Override
@@ -153,6 +154,7 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
 
             setText(0, item.getBusinessName());
             setText(1, item.getDiscountOffer());
+            setText(2, "1.2km");
             //setNumber(R.id.tv_date, item.getCreatedAt());
         }
     }

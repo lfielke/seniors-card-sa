@@ -68,7 +68,7 @@ public final class Constants {
         public static final String URL_NEWS_FRAG = "/1/classes/News";
 
 
-        public static final String URL_DISCOUNTS_FRAG = "/1/classes/Discounts";
+        public static final String URL_DISCOUNTS_FRAG = "/1/classes/Discounts_staging";
 
 
         /**
