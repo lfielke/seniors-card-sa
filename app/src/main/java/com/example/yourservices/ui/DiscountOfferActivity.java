@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yourservices.R;
 import com.example.yourservices.core.Constants;
 import com.example.yourservices.model.DiscountOffer;
 import com.example.yourservices.util.Ln;
+import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
 import lombok.experimental.Accessors;
@@ -33,6 +35,20 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
     @InjectView(R.id.website_button)
     protected View mWebsiteButton;
+
+    @InjectView(R.id.map_img)
+    protected ImageView mMapImg;
+
+    @InjectView(R.id.map_view_overlay)
+    protected View mMapOverlay;
+
+    @InjectView(R.id.header_bg)
+    protected ImageView mHeaderBg;
+
+//    @InjectView(R.id.map_view)
+//    protected MapView mMapView;
+//
+//    private GoogleMap mGoogleMap;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -77,7 +93,29 @@ public class DiscountOfferActivity extends BootstrapActivity {
         } else {
             mWebsiteButton.setEnabled(false);
         }
+
+        // Map
+        mMapOverlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMapClick();
+            }
+        });
+        Picasso.with(this)
+                .load(getStaticMapUri(-34.9067875, 138.6060122)) // TODO - real coords
+//                .into(mMapImg);
+                .into(mHeaderBg);
     }
+
+    private static Uri getStaticMapUri(double latitude, double longitude) {
+        return Uri.parse("http://maps.google.com/maps/api/staticmap?center=" +
+                latitude + "," + longitude + "&zoom=13&size=600x300&sensor=false");
+    }
+
+    private void onMapClick() {
+        finish();
+    }
+
 
     private void onWebsiteClick() {
         String uriString = mDiscountOffer.getNormalisedWebsite();

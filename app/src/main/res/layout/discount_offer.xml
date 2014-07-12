@@ -11,39 +11,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/seniors_card_blue"
-            android:orientation="vertical"
-            android:paddingBottom="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp">
+            android:layout_height="120dp">
 
-            <!-- Business name -->
-            <TextView
-                android:id="@+id/business_name"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/seniors_card_text_white"
-                tools:text="City Physiotherapy and Sports Injury Clinic" />
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:id="@+id/header_bg" />
 
-            <!-- Address -->
-            <TextView
-                android:id="@+id/address"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Lvl 6 118 King William Street\nADELAIDE"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/seniors_card_text_grey" />
+                android:layout_height="match_parent"
+                android:background="@color/seniors_card_blue_overlay"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp">
+
+                <!-- Business name -->
+                <TextView
+                    android:id="@+id/business_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="left"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/seniors_card_text_white"
+                    tools:text="City Physiotherapy and Sports Injury Clinic"
+                    android:textSize="26sp"
+                    android:shadowColor="#AA000000"
+                    android:shadowRadius="4" />
 
 
-        </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+
 
         <!-- Details bottom half -->
         <LinearLayout
@@ -55,6 +61,17 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp">
 
+            <!-- Address -->
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Lvl 6 118 King William Street\nADELAIDE"
+                android:textColor="@color/table_text_selector"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <!--android:textColor="@color/seniors_card_text_grey" />-->
+
             <!-- Offer details -->
             <TextView
                 android:id="@+id/offer"
@@ -63,7 +80,37 @@
                 android:layout_marginBottom="16dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/table_text_selector"
+                android:gravity="center_horizontal"
                 tools:text="20% discount on the gap for all visits" />
+
+            <!-- View on map -->
+            <com.example.yourservices.ui.view.SquareFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="64dp"
+                android:background="@color/seniors_card_blue"
+                android:padding="2dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/map_img"
+                    android:src="@drawable/ic_map" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/map_view_overlay"
+                    android:text="View on map"
+                    android:gravity="center"
+                    android:background="@drawable/overlay_states"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="26sp"
+                    android:shadowColor="#AA000000"
+                    android:shadowRadius="4" />
+
+            </com.example.yourservices.ui.view.SquareFrameLayout>
 
 
             <!-- Spacer -->
@@ -86,12 +133,12 @@
                     android:id="@+id/website_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_background_states"
-                    android:padding="@dimen/button_frame_padding"
-                    android:layout_marginRight="8dp">
+                    android:padding="@dimen/button_frame_padding">
 
-                    <TextView
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
