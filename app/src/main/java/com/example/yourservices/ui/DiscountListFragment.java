@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ListView;
 
@@ -88,23 +90,24 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
                         activity.finish();
                     return initialItems;
                 }
-
-
-//                ArrayList<DiscountOffer> offers = new ArrayList<DiscountOffer>();
-//
-//                offers.add(new DiscountOffer("Billy's Café", "10% off food and drinks", "08 1234 5678", null));
-//                offers.add(new DiscountOffer("City Physiotherapy and Sports Injury Clinic", "20% discount on the gap for all visits", "08 8123123123", "http://www.google.com"));
-//                offers.add(new DiscountOffer("Petstop Gawler", "10% disc. On cash sales excl. fresh pet meat, grooming and point of lay chooks", "(08) 8522 1809", "http://www.petstopgawler.com.au/"));
-//
-//                if (getActivity() != null) {
-//                    return offers;
-//                } else {
-//                    return Collections.emptyList();
-//                }
-
             }
         };
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu optionsMenu, MenuInflater inflater) {
+        inflater.inflate(R.menu.discount_list_menu, optionsMenu);
+
+        // Associate searchable configuration with the SearchView
+//        SearchManager searchManager =
+//                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+//        SearchView searchView =
+//                (SearchView) optionsMenu.findItem(R.id.search).getActionView();
+//        searchView.setSearchableInfo(
+//                searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+    }
+
 
     @Override
     protected SingleTypeAdapter<DiscountOffer> createAdapter(List<DiscountOffer> items) {

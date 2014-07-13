@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/bg_paper"
+        android:scaleType="centerCrop" />
 
     <!-- Main Layout -->
     <LinearLayout
@@ -11,36 +17,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Card image -->
+        <!-- Card hero image -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="180dp">
 
+            <!-- Background image -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_photo2"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_photo2" />
 
+            <!-- Overlay -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/seniors_card_blue_overlay" />
+                android:background="@color/generic_grey_blue_overlay" />
 
+            <!-- Seniors Card (with shadow) -->
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="true"
                 android:layout_marginBottom="32dp"
                 android:layout_marginTop="32dp"
-                android:paddingLeft="1px"
-                android:paddingTop="1px"
+                android:adjustViewBounds="true"
+                android:background="#80000000"
                 android:paddingBottom="2dp"
+                android:paddingLeft="1px"
                 android:paddingRight="2dp"
+                android:paddingTop="1px"
                 android:scaleType="centerInside"
-                android:src="@drawable/seniors_card"
-                android:background="#80000000" />
+                android:src="@drawable/seniors_card" />
 
         </FrameLayout>
 
@@ -56,10 +65,10 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingBottom="8dp"
+            android:paddingBottom="16dp"
             android:paddingLeft="@dimen/detail_view_side_padding"
             android:paddingRight="@dimen/detail_view_side_padding"
-            android:paddingTop="8dp">
+            android:paddingTop="16dp">
 
             <include layout="@layout/spacer" />
 
@@ -106,9 +115,10 @@
             <!-- Buttons -->
             <FrameLayout
                 android:id="@+id/about_seniors_card_button"
-                style="@style/ButtonContainer">
+                style="@style/ButtonContainer"
+                android:layout_marginBottom="0dp">
 
-                <TextView
+            <TextView
                     style="@style/ButtonTextView"
                     android:text="About Seniors Card" />
 
@@ -142,17 +152,17 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/seniors_card_brown"
+            android:background="@color/seniors_card_brown_trans"
             android:orientation="vertical">
 
             <TextView
-                style="@style/ButtonTextView"
                 android:id="@+id/about_app_button"
+                style="@style/ButtonTextView"
                 android:text="About This App" />
 
         </FrameLayout>
 
 
     </LinearLayout>
+</FrameLayout>
 
-</ScrollView>
