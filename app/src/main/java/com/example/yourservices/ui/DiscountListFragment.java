@@ -18,6 +18,7 @@ import com.example.yourservices.authenticator.LogoutService;
 import com.example.yourservices.model.DiscountOffer;
 import com.github.kevinsawicki.wishlist.SingleTypeAdapter;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -81,7 +82,17 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
                     if (getActivity() != null) {
                         List<DiscountOffer> discountOffers = serviceProvider.getService(getActivity()).getDiscountOffers();
                         Collections.sort(discountOffers);
+
+                        // Hack to filter some entries
+                        ArrayList<DiscountOffer> filteredList = new ArrayList<DiscountOffer>();
+                        for (DiscountOffer d : discountOffers) {
+                            if (d.getBusinessName().toLowerCase().charAt(0) == 'a') {
+                                filteredList.add(d);
+                            }
+                        }
+
                         return discountOffers;
+//                        return filteredList;
                     } else {
                         return Collections.emptyList();
                     }

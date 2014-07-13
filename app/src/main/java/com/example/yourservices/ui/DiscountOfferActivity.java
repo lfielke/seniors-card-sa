@@ -1,5 +1,6 @@
 package com.example.yourservices.ui;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -226,6 +227,7 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
     }
 
+    @SuppressLint("ValidFragment")
     public class RatingDialog extends DialogFragment {
 
         private RatingBar mRatingBar;
