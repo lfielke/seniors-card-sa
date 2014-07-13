@@ -23,6 +23,7 @@ import com.example.yourservices.ui.MainMenuActivity;
 import com.example.yourservices.ui.NavigationDrawerFragment;
 import com.example.yourservices.ui.NewsActivity;
 import com.example.yourservices.ui.NewsListFragment;
+import com.example.yourservices.ui.SuggestActivity;
 import com.example.yourservices.ui.UserActivity;
 import com.example.yourservices.ui.UserListFragment;
 import com.google.gson.Gson;
@@ -59,6 +60,7 @@ import retrofit.converter.GsonConverter;
                 DiscountListFragment.class,
                 DiscountOfferActivity.class,
                 DiscountMapFragment.class,
+                SuggestActivity.class,
                 TimerService.class
         }
 )

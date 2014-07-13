@@ -13,6 +13,7 @@
     <color name="seniors_card_blue">#104a7c</color>
     <color name="seniors_card_blue_overlay">#A0104a7c</color>
     <color name="seniors_card_brown">#a8996e</color>
+    <color name="seniors_card_brown_bg">#eddca6</color>
 
     <color name="seniors_card_text_white">#FFffffff</color>
     <color name="seniors_card_text_grey">#FFDDDDDD</color>

@@ -70,7 +70,7 @@
 
                 <TextView
                     style="@style/ButtonTextView"
-                    android:text="Browse discounts" />
+                    android:text="Browse Discounts" />
 
             </FrameLayout>
 
@@ -84,7 +84,7 @@
 
                 <TextView
                     style="@style/ButtonTextView"
-                    android:text="My list" />
+                    android:text="My List" />
 
             </FrameLayout>
 
@@ -97,7 +97,7 @@
 
                 <TextView
                     style="@style/ButtonTextView"
-                    android:text="Suggest a business" />
+                    android:text="Suggest a Business" />
 
             </FrameLayout>
 
@@ -110,7 +110,7 @@
 
                 <TextView
                     style="@style/ButtonTextView"
-                    android:text="About seniors card" />
+                    android:text="About Seniors Card" />
 
             </FrameLayout>
 
@@ -148,7 +148,7 @@
             <TextView
                 style="@style/ButtonTextView"
                 android:id="@+id/about_app_button"
-                android:text="About this app" />
+                android:text="About This App" />
 
         </FrameLayout>
 

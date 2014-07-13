@@ -26,7 +26,7 @@ public class MainMenuActivity extends BootstrapFragmentActivity {
 
     @OnClick(R.id.suggest_button)
     protected void onSuggestBtn(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SuggestActivity.class);
         startActivity(intent);
     }
 
