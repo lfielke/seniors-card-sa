@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="button_frame_padding">8dp</dimen>
+    <dimen name="button_frame_height">64dp</dimen>
     <dimen name="discount_icon_size">32dp</dimen>
     <dimen name="top_header_height">130dp</dimen>
 

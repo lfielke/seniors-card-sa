@@ -1,10 +1,15 @@
 package com.example.yourservices.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.yourservices.R;
@@ -15,12 +20,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
+import butterknife.OnClick;
 import lombok.experimental.Accessors;
 
 @Accessors(prefix = "m")
 public class DiscountOfferActivity extends BootstrapActivity {
 
     private static final LatLng DEFAULT_LOCATION = new LatLng(-34.9067875, 138.6060122);
+    public static final String TAG_RATING_DIALOG = "rating_dialog";
+    public static final int NUM_STARS = 5;
 
     private DiscountOffer mDiscountOffer;
 
@@ -56,6 +64,12 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
     @InjectView(R.id.map_btn)
     protected View mMapBtn;
+
+    @InjectView(R.id.used_label)
+    protected View mUsedLabel;
+
+    @InjectView(R.id.rating_bar)
+    protected RatingBar mButtonRatingBar;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -158,5 +172,67 @@ public class DiscountOfferActivity extends BootstrapActivity {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse(uriString));
         startActivity(intent);
+    }
+
+    @OnClick(R.id.used_button)
+    protected void onUsedClick() {
+        Ln.d("Used pressed");
+        DialogFragment dialogFragment = new RatingDialog();
+        dialogFragment.show(getSupportFragmentManager(), TAG_RATING_DIALOG);
+
+    }
+
+    public class RatingDialog extends DialogFragment {
+
+        private RatingBar mRatingBar;
+
+        public RatingDialog() {
+            // Empty constructor required for DialogFragment
+        }
+
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            View view = inflater.inflate(R.layout.dialog_rate, container);
+//            mRatingBar = (RatingBar) view.findViewById(R.id.rating_bar);
+//            return view;
+//        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_rate, null);
+            mRatingBar = (RatingBar) view.findViewById(R.id.rating_bar);
+            mRatingBar.setNumStars(NUM_STARS);
+            builder.setView(view);
+
+            builder.setTitle("Would you like to rate this discount?");
+            builder.setPositiveButton(android.R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Ln.d("ok");
+                            mUsedLabel.setVisibility(View.GONE);
+                            mButtonRatingBar.setVisibility(View.VISIBLE);
+                            mButtonRatingBar.setRating(mRatingBar.getRating());
+
+                            // TODO - save rating to API
+                        }
+                    }
+            );
+            builder.setNegativeButton("No thanks",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Ln.d("no thanks");
+                            dialog.cancel();
+                        }
+                    }
+            );
+
+
+            return builder.create();
+        }
     }
 }
