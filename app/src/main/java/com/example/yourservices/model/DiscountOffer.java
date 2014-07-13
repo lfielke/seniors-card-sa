@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * A discount offer.
  */
 @Accessors(prefix = "m")
-public class DiscountOffer implements Serializable {
+public class DiscountOffer implements Serializable, Comparable {
 
     @NotNull
     @SerializedName("businessName")
@@ -62,7 +62,7 @@ public class DiscountOffer implements Serializable {
     private String mAddress;
 
     @Nullable
-    @SerializedName("symbols")
+    @SerializedName("Symbols")
     private String mSymbols; //P=Parking, DA=disabled access, NZ=available to N.Z.,
 
     @Nullable
@@ -160,6 +160,14 @@ public class DiscountOffer implements Serializable {
         return mSymbols != null && mSymbols.contains("P");
     }
 
+    public boolean hasDisabled() {
+        return mSymbols != null && mSymbols.contains("DA");
+    }
+
+    public boolean hasNewZealand() {
+        return mSymbols != null && mSymbols.contains("NZ");
+    }
+
     @Override
     public String toString() {
         return "DiscountOffer{" +
@@ -196,5 +204,15 @@ public class DiscountOffer implements Serializable {
             return null;
         }
         return new LatLng(lat, lng);
+    }
+
+    @Override
+    public int compareTo(Object another) {
+        if (another instanceof DiscountOffer) {
+            DiscountOffer other = (DiscountOffer) another;
+            return mBusinessName.compareToIgnoreCase(other.mBusinessName);
+        } else {
+            return 0;
+        }
     }
 }

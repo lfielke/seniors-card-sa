@@ -10,6 +10,8 @@
 
 
     <!-- Colors -->
+    <color name="common_trans">#00000000</color>
+    <color name="common_trans_pressed">#40000000</color>
 
     <color name="seniors_card_blue">#104a7c</color>
     <color name="seniors_card_blue_overlay">#A0104a7c</color>

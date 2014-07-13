@@ -45,8 +45,12 @@
     <string name="search_hint">Search</string>
     <string name="discounts">Discounts</string>
 
+    <!-- Discount List -->
+    <string name="title_discounts">Discounts</string>
+
+
     <!-- Discount details -->
-    <string name="discount_details_title">Discount details</string>
+    <string name="discount_details_title">Details</string>
     <string name="title_activity_main_menu">Seniors Card</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

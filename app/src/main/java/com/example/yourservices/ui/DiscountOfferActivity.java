@@ -19,6 +19,8 @@ import com.example.yourservices.util.Ln;
 import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.Nullable;
+
 import butterknife.InjectView;
 import butterknife.OnClick;
 import lombok.experimental.Accessors;
@@ -37,6 +39,15 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
     @InjectView(R.id.address)
     protected TextView mAddressTxt;
+
+    @InjectView(R.id.primary_category)
+    protected TextView mPrimaryCategory;
+
+    @InjectView(R.id.subcategory)
+    protected TextView mSubcategory;
+
+    @InjectView(R.id.subcategory_container)
+    protected View mSubcategoryContainer;
 
     @InjectView(R.id.offer)
     protected TextView mOfferTxt;
@@ -71,6 +82,15 @@ public class DiscountOfferActivity extends BootstrapActivity {
     @InjectView(R.id.rating_bar)
     protected RatingBar mButtonRatingBar;
 
+    // Icons
+    @InjectView(R.id.icon_parking)
+    protected View mIconParking;
+    @InjectView(R.id.icon_disabled)
+    protected View mIconDisabled;
+    @InjectView(R.id.icon_new_zealand)
+    protected View mIconNewZealand;
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,10 +108,23 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
         // Bind views
         mBusinessName.setText(mDiscountOffer.getBusinessName());
+        hideIfEmpty(mBusinessName);
         mAddressTxt.setText(mDiscountOffer.getAddress());
+        hideIfEmpty(mAddressTxt);
         mOfferTxt.setText(mDiscountOffer.getDiscountOffer());
-        mExtraInfoTxt.setText(mDiscountOffer.getExtraText());
-        mExtraInfoTxt.setText(mDiscountOffer.toString()); // TODO - remove
+        hideIfEmpty(mOfferTxt);
+//        mExtraInfoTxt.setText(mDiscountOffer.getExtraText());
+//        mExtraInfoTxt.setText(mDiscountOffer.toString()); // TODO - Debugging only
+        hideIfEmpty(mExtraInfoTxt);
+        mPrimaryCategory.setText(mDiscountOffer.getPrimaryCategory());
+        hideIfEmpty(mPrimaryCategory);
+        mSubcategory.setText(mDiscountOffer.getSubCategory());
+        hideIfEmpty(mSubcategory, mSubcategoryContainer);
+
+        mIconParking.setVisibility(mDiscountOffer.hasParking() ? View.VISIBLE : View.GONE);
+        mIconDisabled.setVisibility(mDiscountOffer.hasDisabled() ? View.VISIBLE : View.GONE);
+        mIconNewZealand.setVisibility(mDiscountOffer.hasNewZealand() ? View.VISIBLE : View.GONE);
+
 
         // Phone number
         if (mDiscountOffer.hasPhoneNumber()) {
@@ -138,6 +171,17 @@ public class DiscountOfferActivity extends BootstrapActivity {
                 .load(getStaticMapUri(mapLocation))
 //                .into(mMapImg);
                 .into(mHeaderBg);
+    }
+
+    private void hideIfEmpty(@Nullable TextView textView, View... visibilitySlaves) {
+        if (textView != null) {
+            CharSequence text = textView.getText();
+            int visibility = text != null && text.length() > 0 ? View.VISIBLE : View.GONE;
+            textView.setVisibility(visibility);
+            for (View v : visibilitySlaves) {
+                v.setVisibility(visibility);
+            }
+        }
     }
 
     private static Uri getStaticMapUri(LatLng latLng) {

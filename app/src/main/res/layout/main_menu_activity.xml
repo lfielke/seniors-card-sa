@@ -157,8 +157,14 @@
 
             <TextView
                 android:id="@+id/about_app_button"
+                android:layout_height="match_parent"
                 style="@style/ButtonTextView"
-                android:text="About This App" />
+                android:text="About This App"
+                android:background="@drawable/trans_button_bg"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
 
         </FrameLayout>
 

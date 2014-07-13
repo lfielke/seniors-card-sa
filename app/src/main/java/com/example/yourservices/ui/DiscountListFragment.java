@@ -79,7 +79,9 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
             public List<DiscountOffer> loadData() throws Exception {
                 try {
                     if (getActivity() != null) {
-                        return serviceProvider.getService(getActivity()).getDiscountOffers();
+                        List<DiscountOffer> discountOffers = serviceProvider.getService(getActivity()).getDiscountOffers();
+                        Collections.sort(discountOffers);
+                        return discountOffers;
                     } else {
                         return Collections.emptyList();
                     }
@@ -158,7 +160,7 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
 
             setText(0, item.getBusinessName());
             setText(1, item.getDiscountOffer());
-            setText(2, "1.2km");
+            setText(2, "");
             //setNumber(R.id.tv_date, item.getCreatedAt());
         }
     }
