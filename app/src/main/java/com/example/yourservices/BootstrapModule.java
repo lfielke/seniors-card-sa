@@ -13,6 +13,8 @@ import com.example.yourservices.core.RestAdapterRequestInterceptor;
 import com.example.yourservices.core.RestErrorHandler;
 import com.example.yourservices.core.TimerService;
 import com.example.yourservices.core.UserAgentProvider;
+import com.example.yourservices.ui.AboutAppActivity;
+import com.example.yourservices.ui.AboutSeniorsCardActivity;
 import com.example.yourservices.ui.BootstrapTimerActivity;
 import com.example.yourservices.ui.CheckInsListFragment;
 import com.example.yourservices.ui.DiscountListFragment;
@@ -60,6 +62,8 @@ import retrofit.converter.GsonConverter;
                 DiscountListFragment.class,
                 DiscountOfferActivity.class,
                 DiscountMapFragment.class,
+                AboutSeniorsCardActivity.class,
+                AboutAppActivity.class,
                 SuggestActivity.class,
                 TimerService.class
         }

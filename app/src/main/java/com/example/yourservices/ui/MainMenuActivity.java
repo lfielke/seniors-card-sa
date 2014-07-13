@@ -32,13 +32,13 @@ public class MainMenuActivity extends BootstrapFragmentActivity {
 
     @OnClick(R.id.about_seniors_card_button)
     protected void onAboutSeniorsCardBtn(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AboutSeniorsCardActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.about_app_button)
     protected void onAboutAppBtn(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AboutAppActivity.class);
         startActivity(intent);
     }
 
