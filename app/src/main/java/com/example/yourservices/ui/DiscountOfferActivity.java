@@ -57,11 +57,6 @@ public class DiscountOfferActivity extends BootstrapActivity {
     @InjectView(R.id.map_btn)
     protected View mMapBtn;
 
-//    @InjectView(R.id.map_view)
-//    protected MapView mMapView;
-//
-//    private GoogleMap mGoogleMap;
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +81,6 @@ public class DiscountOfferActivity extends BootstrapActivity {
 
         // Phone number
         if (mDiscountOffer.hasPhoneNumber()) {
-//            mCallButtonTxt.setText(mDiscountOffer.getPhoneNumber());
             mCallButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -140,7 +134,12 @@ public class DiscountOfferActivity extends BootstrapActivity {
     }
 
     private void onMapClick() {
-        finish();
+        LatLng latLng = mDiscountOffer.getLatLng();
+        double latitude = latLng.latitude;
+        double longitude = latLng.longitude;
+        String uri = String.format("https://maps.google.com/maps?f=d&daddr=%f,%f", latitude, longitude);
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(i);
     }
 
 

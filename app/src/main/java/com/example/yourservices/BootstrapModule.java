@@ -16,6 +16,7 @@ import com.example.yourservices.core.UserAgentProvider;
 import com.example.yourservices.ui.BootstrapTimerActivity;
 import com.example.yourservices.ui.CheckInsListFragment;
 import com.example.yourservices.ui.DiscountListFragment;
+import com.example.yourservices.ui.DiscountMapFragment;
 import com.example.yourservices.ui.DiscountOfferActivity;
 import com.example.yourservices.ui.MainActivity;
 import com.example.yourservices.ui.MainMenuActivity;
@@ -32,6 +33,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
@@ -56,6 +58,7 @@ import retrofit.converter.GsonConverter;
                 UserListFragment.class,
                 DiscountListFragment.class,
                 DiscountOfferActivity.class,
+                DiscountMapFragment.class,
                 TimerService.class
         }
 )
@@ -128,6 +131,12 @@ public class BootstrapModule {
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setConverter(new GsonConverter(gson))
                 .build();
+    }
+
+    // Location
+    @Provides
+    ReactiveLocationProvider provideReactiveLocationProvider(Context context) {
+        return new ReactiveLocationProvider(context);
     }
 
 }

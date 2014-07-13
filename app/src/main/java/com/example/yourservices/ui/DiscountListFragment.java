@@ -123,6 +123,7 @@ public class DiscountListFragment extends ItemListFragment<DiscountOffer> {
         return R.string.error_loading_news;
     }
 
+
     public class DiscountListAdapter extends AlternatingColorListAdapter<DiscountOffer> {
         /**
          * @param inflater

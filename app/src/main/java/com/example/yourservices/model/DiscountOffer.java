@@ -184,6 +184,9 @@ public class DiscountOffer implements Serializable {
 
     @Nullable
     public LatLng getLatLng() {
+        if (mLatitude == null || mLongitude == null) {
+            return null;
+        }
         double lat;
         double lng;
         try {

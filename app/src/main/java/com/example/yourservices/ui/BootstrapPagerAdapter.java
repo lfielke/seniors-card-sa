@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.yourservices.R;
-import com.google.android.gms.maps.SupportMapFragment;
 
 /**
  * Pager adapter
@@ -41,7 +40,8 @@ public class BootstrapPagerAdapter extends FragmentPagerAdapter {
                 break;
             case 1:
 //                result = new DiscountsFragment();
-                result = new SupportMapFragment();
+//                result = new SupportMapFragment();
+                result = new DiscountMapFragment();
                 break;
             case 2:
                 result = new CheckInsListFragment();

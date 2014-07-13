@@ -40,7 +40,7 @@
         <item name="android:layout_width">240dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:background">@drawable/button_material_green_states</item>
+        <item name="android:background">@drawable/button_material_blue_states</item>
         <item name="android:padding">@dimen/button_frame_padding</item>
         <item name="android:layout_marginBottom">16dp</item>
     </style>

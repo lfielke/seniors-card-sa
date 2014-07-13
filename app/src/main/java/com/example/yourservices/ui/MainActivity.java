@@ -52,7 +52,9 @@ public class MainActivity extends BootstrapFragmentActivity {
     private NavigationDrawerFragment navigationDrawerFragment;
 
     // ReactiveLocation
-    private ReactiveLocationProvider locationProvider;
+    @Inject
+    protected ReactiveLocationProvider locationProvider;
+
     private Observable<Location> lastKnownLocationObservable;
     private Observable<Location> locationUpdatesObservable;
     private Subscription lastKnownLocationSubscription;
@@ -123,7 +125,6 @@ public class MainActivity extends BootstrapFragmentActivity {
     }
 
     private void setupLocation() {
-        locationProvider = new ReactiveLocationProvider(getApplicationContext());
         lastKnownLocationObservable = locationProvider.getLastKnownLocation();
 
         locationUpdatesObservable = locationProvider.getUpdatedLocation(

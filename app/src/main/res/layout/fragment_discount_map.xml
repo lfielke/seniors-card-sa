@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DiscountMapFragment">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:background="#C0FFFFFF">
+
+        <!-- Shadow -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tap_to_show_details"
+            android:layout_gravity="center"
+            android:text="Tap a map pin to show details"
+            android:textColor="#A0444444"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:id="@+id/details_container"
+            android:background="#80FFFFFF"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Slater and Gordon"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="#ff111111" />
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="16sp"
+                tools:text="10% off of all purchases made before 3pm on Tuesdays and Wednesdays"
+                android:textColor="#ff55555" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
